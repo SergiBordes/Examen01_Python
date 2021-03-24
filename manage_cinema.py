@@ -19,7 +19,7 @@ class Cinema:
           - Cada fila tiene un diccionario para representar las butacas de esa fila.
           - Las claves del diccionario son cada una de las butacas de esa fila (1, 2, 3, etc.).
         """        
-        #Esta funcion siempre "ocupaba" la misma fila, ya que la linea row... estaba fuera del for
+        #Esta funcion siempre "ocupaba" la misma fila, ya que la linea row... estaba fuera del for entonces la i siempre era la misma
         for j in range(1, self.__rows+1):
             row = { i : None for i in range(1, self.__seats_per_row+1) }  
             self.__seating.append(row)
@@ -69,8 +69,8 @@ print("total: "+str(cinema.count_free_seats(seats,total))) #Tengo que imprimir p
 
 #ERROR 3: quiero modificar la butaca (2,4) de la lista anterior para que sea la (3,4) y no me deja.
 print("\n------------- Error 3 -----------------")
-seats[0][1]=3
+seats[0] = (3,4) #El formato no era el correcto (es una lista, no un diccionario), habia que acceder a la primera posicion de la lista (butaca 2,4), y modificar esta entera (butaca 3,4)
 total = 0
 cinema.count_free_seats(seats,total)
-print("total: "+str(total))
+print("total: "+str(cinema.count_free_seats(seats,total))) #volvemos a imprimir el retorno de la funcion
         
