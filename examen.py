@@ -8,8 +8,11 @@ def get_list(fichero):
     dic={} #Creamos el diccionario donde almacenar las palabras
     #Abrimos el fichero en modo lectura:
     f = open(fichero, mode="rt", encoding="utf-8")
+
     for linea in f:
-        dic[len(linea)-1] = linea
+        palabras = linea.split()
+        for i in range(0, len(palabras)):
+            dic[len(palabras[i])] = palabras[i]
 
     return dic
 
